@@ -1,9 +1,12 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
 const mongoose = require('mongoose');
 const auth = require('./routes/auth');
 
-app.use('/', auth)
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use('/api', auth)
+
 
 app.get('/home', (req, res) => {
     res.send('Welcome to the page!');
