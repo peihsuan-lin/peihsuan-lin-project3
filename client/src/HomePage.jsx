@@ -67,7 +67,7 @@ export default function HomePage() {
           Post Update
         </button>
       </div>
-      <h1>All Users' Status Updates</h1>
+      <h1>All Status Updates</h1>
       {allData.length === 0 ? (
         <div>Loading...</div>
       ) : (
