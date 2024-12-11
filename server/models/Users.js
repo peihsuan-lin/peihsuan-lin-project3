@@ -8,8 +8,9 @@ function createUser(user) {
     return UserModel.create(user);
 }
 
-function findUserByUsername(username) {
-    return UserModel.find({username: username}).exec();
+async function findUserByUsername(username) {
+    const user = await UserModel.findOne({ username: username }).exec();
+    return user;
 }
 
 module.exports = {
