@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const userModel = require('../models/Users')
-
+const userModel = require('../models/Users');
+const jwtHelpers = require('../helpers/jwt');
 
 router.post('/signup', async function (req, res) {
     try {
@@ -22,7 +22,13 @@ router.post('/login', async function (req, res) {
             return res.status(400).send('Username invalid or not found')
         }
         if (user.password === pwd) {
-            return res.status(200).send('Log in successful');
+            const token = jwtHelpers.generateToken(username);
+            res.cookie('userToken', token);
+            return res.status(200).json({
+                success: true,
+                message: 'Log in successful',
+                token
+            });
         }
         res.status(400);
         return res.send('Password is not valid');
