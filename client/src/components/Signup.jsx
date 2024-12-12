@@ -1,9 +1,11 @@
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Signup() {
   const [usernameState, setUsernameState] = useState('');
   const [passwordState, setPasswordState] = useState('');
+  const navigate = useNavigate();
 
   function handleUsername(e) {
     const username = e.target.value;
@@ -19,6 +21,9 @@ export default function Signup() {
         username: usernameState,
         password: passwordState
       });
+      if (response.data.success) {
+        navigate('/home');
+      }
     } catch (error) {
       console.error(error.response ? error.response.data : error.message);
     }

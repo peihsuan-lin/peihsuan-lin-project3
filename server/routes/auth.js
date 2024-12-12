@@ -5,10 +5,16 @@ const jwtHelpers = require('../helpers/jwt');
 
 router.post('/signup', async function (req, res) {
     try {
-        await userModel.createUser(req.body);
-        return res.status(200).send('Successfully created user, logged in');
+        const newUser = await userModel.createUser(req.body);
+        const token = jwtHelpers.generateToken(req.body.username);
+        res.cookie('userToken', token);
+        return res.status(200).json({
+            success: true,
+            message: 'Successfully created user and logged in',
+            token
+        });
     } catch (error) {
-        res.status(404);
+        res.status(400);
         return res.send('Error creating new user');
     }
 })
