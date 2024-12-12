@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 export default function HomePage() {
@@ -45,7 +46,18 @@ export default function HomePage() {
         key={index}
         style={{ marginBottom: "20px", border: "1px solid #ccc", padding: "10px" }}
       >
-        <h3>{update.username}</h3>
+        <h3>
+          <Link 
+            to={`/user/${update.username}`}
+            style={{ 
+              textDecoration: "none", 
+              color: "#0066cc",
+              cursor: "pointer"
+            }}
+          >
+            {update.username}
+          </Link>
+        </h3>
         <p>{update.content}</p>
         <small>{new Date(update.timestamp).toLocaleString()}</small>
       </div>
