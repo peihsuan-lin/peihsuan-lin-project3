@@ -4,13 +4,14 @@ const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const auth = require('./routes/auth');
 const homepage = require('./routes/homepage');
+const userpage = require('./routes/user');
 
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use('/api', auth);
 app.use('/api', homepage);
-
+app.use('/api', userpage);
 
 app.get('/home', (req, res) => {
     res.send('Welcome to the page!');

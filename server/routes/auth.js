@@ -38,4 +38,8 @@ router.post('/login', async function (req, res) {
     }
 })
 
+router.post('/logout', async function (req, res) {
+    res.clearCookie('userToken');
+    res.send();
+})
 module.exports = router;

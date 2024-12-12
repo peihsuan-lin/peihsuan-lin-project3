@@ -8,6 +8,7 @@ import './index.css'
 import HomePage from './HomePage.jsx'
 import Login from './Login.jsx';
 import Signup from './Signup.jsx';
+import UserPage from './UserPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
   {
     path: '/signup',
     element: <Signup />
+  },
+  {
+    path: '/user/:username',
+    element: <UserPage />
   }
 ]);
 createRoot(document.getElementById('root')).render(

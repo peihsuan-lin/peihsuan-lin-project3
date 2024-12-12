@@ -8,7 +8,7 @@ function createStatusUpdate(status) {
 }
 
 async function findStatusByUsername(username) {
-    const user = await StatusUpdates.find({ username }).sort({ timestamp: -1 }).exec();
+    const user = await StatusUpdateModel.find({ username }).sort({ timestamp: -1 }).exec();
     return user;
 }
 
