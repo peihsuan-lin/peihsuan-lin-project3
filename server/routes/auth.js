@@ -42,4 +42,22 @@ router.post('/logout', async function (req, res) {
     res.clearCookie('userToken');
     res.send();
 })
+
+router.get('/status', async function (req, res) {
+    try {
+        const token = req.cookies.userToken;
+        if (!token) {
+            return res.status(401).json({ error: 'No token found' });
+        }
+        
+        const username = jwtHelpers.decrypt(token);
+        if (!username) {
+            return res.status(401).json({ error: 'Invalid token' });
+        }
+        res.json({ username });
+    } catch (error) {
+        res.status(401).json({ error: 'Invalid token' });
+    }
+});
+
 module.exports = router;

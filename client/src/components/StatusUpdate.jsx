@@ -4,6 +4,7 @@ import "../style/UserPage.css";
 const StatusUpdate = ({ update, isOwnProfile, onEdit }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editContent, setEditContent] = useState(update.content);
+  
   const handleSaveEdit = async () => {
     try {
       await onEdit(update._id, editContent);
