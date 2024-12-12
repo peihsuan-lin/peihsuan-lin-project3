@@ -11,7 +11,7 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use('/api', auth);
 app.use('/api', homepage);
-app.use('/api', userpage);
+app.use('/api', userpage)
 
 app.get('/home', (req, res) => {
     res.send('Welcome to the page!');
@@ -23,4 +23,6 @@ mongoose.connect(mongoEndpoint, { useNewUrlParser: true });
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Error connecting to MongoDB:'));
 
-app.listen(5001);
+app.listen(process.env.PORT || 8000, function() {
+    console.log("Starting server now...")
+})
