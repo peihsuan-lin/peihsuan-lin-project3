@@ -19,7 +19,7 @@ const Navbar = () => {
 
   useEffect(() => {
     checkAuthStatus();
-  }, [location.pathname]); // Re-run when route changes
+  }, [location.pathname]);
 
   const handleLogout = async () => {
     try {
@@ -40,21 +40,19 @@ const Navbar = () => {
             <Link to={`/user/${username}`} className="nav-link">My Profile</Link>
           )}
         </div>
-        <div>
-          {username ? (
-            <div className="user-section">
-              <span className="welcome-text">Hi, {username}!</span>
-              <button onClick={handleLogout} className="logout-btn">
-                Logout
-              </button>
-            </div>
-          ) : (
-            <div className="auth-buttons">
-              <Link to="/login" className="nav-link">Login</Link>
-              <Link to="/signup" className="nav-link">Sign Up</Link>
-            </div>
-          )}
-        </div>
+        {username ? (
+          <div className="user-section">
+            <span className="welcome-text">Hi, {username}!</span>
+            <button onClick={handleLogout} className="logout-btn">
+              Logout
+            </button>
+          </div>
+        ) : (
+          <div className="auth-buttons">
+            <Link to="/login" className="nav-link">Login</Link>
+            <Link to="/signup" className="nav-link">Sign Up</Link>
+          </div>
+        )}
       </div>
     </nav>
   );

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import '../style/Home.css';
 
 export default function Home() {
   const [allData, setAllData] = useState([]);
@@ -33,6 +34,7 @@ export default function Home() {
         { withCredentials: true }
       );
       setNewUpdate("");
+      setErrorMessage("");
       fetchAllData();
     } catch (error) {
       console.error("Error creating update:", error);
@@ -42,49 +44,46 @@ export default function Home() {
 
   function renderUpdates() {
     return allData.map((update, index) => (
-      <div
-        key={index}
-        style={{ marginBottom: "20px", border: "1px solid #ccc", padding: "10px" }}
-      >
+      <div key={index} className="update-card">
         <h3>
           <Link 
             to={`/user/${update.username}`}
-            style={{ 
-              textDecoration: "none", 
-              color: "#0066cc",
-              cursor: "pointer"
-            }}
+            className="username-link"
           >
             {update.username}
           </Link>
         </h3>
         <p>{update.content}</p>
-        <small>{new Date(update.timestamp).toLocaleString()}</small>
+        <small className="update-timestamp">
+          {new Date(update.timestamp).toLocaleString()}
+        </small>
       </div>
     ));
   }
 
   return (
-    <div>
-      <div style={{ marginBottom: "20px", padding: "10px", border: "1px solid #ccc" }}>
+    <div className="home-container">
+      <div className="new-update-section">
         <h2>Create a New Update</h2>
-        {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
         <textarea
           value={newUpdate}
           onChange={(e) => setNewUpdate(e.target.value)}
           placeholder="What's on your mind?"
-          style={{ width: "100%", height: "100px", marginBottom: "10px" }}
+          className="update-textarea"
         />
-        <button onClick={handleSubmitUpdate} style={{ padding: "10px 20px", cursor: "pointer" }}>
+        <button onClick={handleSubmitUpdate} className="post-button">
           Post Update
         </button>
       </div>
-      <h1>All Status Updates</h1>
-      {allData.length === 0 ? (
-        <div>Loading...</div>
-      ) : (
-        renderUpdates()
-      )}
+      <div className="updates-section">
+        <h1>All Status Updates</h1>
+        {allData.length === 0 ? (
+          <div className="loading-message">Loading...</div>
+        ) : (
+          renderUpdates()
+        )}
+      </div>
     </div>
   );
 }
