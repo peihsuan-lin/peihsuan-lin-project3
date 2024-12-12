@@ -1,5 +1,20 @@
 {
+  "name": "peihsuan-lin-project3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"npm run dev -w server\" \"npm run dev -w client\"",
+    "build": "npm run build -ws --if-present",
+    "prod": "npm run start -w server"
+  },
   "dependencies": {
+    "concurrently": "^9.1.0",
     "jsonwebtoken": "^9.0.2"
   }
 }
