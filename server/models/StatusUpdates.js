@@ -16,8 +16,20 @@ async function getAllUpdates() {
     return await StatusUpdateModel.find().sort({ timestamp: -1 }).exec();
 }
 
+async function updateStatusById(Id, newContent) {
+    return await StatusUpdateModel.findByIdAndUpdate(
+        Id,
+        { 
+            content: newContent,
+            timestamp: new Date()
+        },
+        { new: true }
+    ).exec();
+}
+
 module.exports = {
     createStatusUpdate,
     findStatusByUsername,
-    getAllUpdates
+    getAllUpdates,
+    updateStatusById
 };

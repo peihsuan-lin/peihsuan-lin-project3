@@ -5,10 +5,10 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import './index.css'
-import HomePage from './HomePage.jsx'
-import Login from './Login.jsx';
-import Signup from './Signup.jsx';
-import UserPage from './UserPage.jsx';
+import HomePage from './components/Home.jsx'
+import Login from './components/Login.jsx';
+import Signup from './components/Signup.jsx';
+import UserPage from './components/User.jsx';
 
 const router = createBrowserRouter([
   {

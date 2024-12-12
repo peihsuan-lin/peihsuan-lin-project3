@@ -1,0 +1,117 @@
+.user-page-container {
+    max-width: 42rem;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  
+  .page-title {
+    margin-bottom: 1.5rem;
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #111827;
+  }
+  
+  .date {
+    margin-bottom: 1.5rem;
+    color: #4B5563;
+  }
+  
+  .no-updates {
+    border: 1px solid #E5E7EB;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    text-align: center;
+    color: #6B7280;
+  }
+  
+  .updates-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .status-update {
+    margin-bottom: 1.25rem;
+    border: 1px solid #E5E7EB;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+  
+  .update-content {
+    color: #1F2937;
+  }
+  
+  .update-meta {
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .timestamp {
+    color: #6B7280;
+    font-size: 0.875rem;
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .edit-textarea {
+    width: 100%;
+    border: 1px solid #D1D5DB;
+    border-radius: 0.375rem;
+    padding: 0.5rem;
+  }
+  
+  .edit-textarea:focus {
+    outline: none;
+    border-color: #3B82F6;
+  }
+  
+  .button {
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+  }
+  
+  .primary-button {
+    background-color: #3B82F6;
+    color: white;
+    border: none;
+  }
+  
+  .primary-button:hover {
+    background-color: #2563EB;
+  }
+  
+  .secondary-button {
+    background-color: white;
+    border: 1px solid #D1D5DB;
+  }
+  
+  .secondary-button:hover {
+    background-color: #F9FAFB;
+  }
+  
+  .edit-button {
+    padding: 0.25rem 0.75rem;
+    background-color: #3B82F6;
+    color: white;
+    border: none;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+  }
+  
+  .edit-button:hover {
+    background-color: #2563EB;
+  }

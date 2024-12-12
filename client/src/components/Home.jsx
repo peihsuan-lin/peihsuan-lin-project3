@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-export default function HomePage() {
+export default function Home() {
   const [allData, setAllData] = useState([]);
   const [newUpdate, setNewUpdate] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
